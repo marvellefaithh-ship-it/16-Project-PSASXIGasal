@@ -21,11 +21,16 @@ def kembali():
 def login():
     username=entry1.get()
     password=entry2.get()
+    cbb=stuju.get()
 
     if username=="marvelle" and password=="1234":
         buka_halaman2()
     else:
         error_login.config(text="Username/Password Salah", foreground="red")
+    if not cbb:
+        error_login.config(text="Harap setuju dengan privacy dan policy")
+    else:
+        buka_halaman2()
 
 
 def simpan_data():
@@ -48,6 +53,7 @@ def simpan_data():
         
     if not tipe:
         error.append("Silahkan pilih tipe kamar yang anda mau")
+    
         
 
     harga=0
@@ -225,3 +231,4 @@ ttk.Button(halaman5, text="Kembali", command=buka_halaman2).pack(pady=10)
 
 halaman1.tkraise()
 root.mainloop()
+
